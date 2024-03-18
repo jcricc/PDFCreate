@@ -1,0 +1,40 @@
+body {
+    background-color: #f8f9fa;
+    color: #212529;
+    padding: 20px;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+}
+
+.navbar {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.jumbotron {
+    background-color: #e9ecef;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.input-group {
+    margin-top: 20px;
+}
+
+.btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+#aiContentPreview {
+    height: 150px;
+    overflow-y: auto;
+    background-color: #ffffff;
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+}

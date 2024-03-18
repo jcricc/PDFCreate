@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OctInk</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a class="navbar-brand" href="#">OctInk</a>
+    </nav>
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4">AI-Powered PDF Generation</h1>
+            <p class="lead">Enter your text and let our AI generate a PDF for you.</p>
+            <hr class="my-4">
+            <div class="input-group">
+                <input id="userInput" type="text" class="form-control" placeholder="Enter your text" aria-label="User's text" aria-describedby="button-addon2">
+                <div class="input-group-append">
+                    <button id="generatePDFBtn" class="btn btn-outline-secondary" type="button">Generate PDF</button>
+                </div>
+            </div>
+            <div id="aiContentPreview" class="border p-3">AI Content Preview will appear here</div>
+        </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
