@@ -1,5 +1,4 @@
-// script.js
-import { generatePDF } from './pdfgeneration.js';
+const { generatePDF, uploadPDFToServer, getPDFDownloadURL } = require('./pdfgeneration.js');
 
 document.getElementById('generatePDFBtn').addEventListener('click', async () => {
     const userInput = document.getElementById('userInput').value;
@@ -7,35 +6,25 @@ document.getElementById('generatePDFBtn').addEventListener('click', async () => 
         alert("Please enter some text to generate PDF.");
         return;
     }
-    const aiContent = await fetchAIContentFromServer(userInput);
-    if (aiContent) {
-        displayAIContentPreview(aiContent);
-        generatePDF(aiContent);
+
+    const htmlContent = await fetchAIContentFromServer(userInput);
+    if (htmlContent) {
+        displayAIContentPreview(htmlContent);
+        const pdfBlob = await generatePDF(htmlContent);
+        const pdfUrl = await uploadPDFToServer(pdfBlob);
+        const downloadUrl = await getPDFDownloadURL(pdfUrl);
+        displayPDF(pdfUrl);
     }
 });
 
 async function fetchAIContentFromServer(userInput) {
-    try {
-        const response = await fetch('http://localhost:5500/generateContent', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ input: userInput }),
-        });
-
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        return data.content;
-    } catch (error) {
-        console.error('Error:', error);
-        alert("Failed to fetch AI content. See console for details.");
-    }
+    // Function to fetch AI content from the server
 }
 
 function displayAIContentPreview(content) {
-    const previewElement = document.getElementById('aiContentPreview');
-    previewElement.innerText = content;
+    // Function to display AI content preview
+}
+
+function displayPDF(pdfUrl) {
+    // Function to display the PDF
 }
